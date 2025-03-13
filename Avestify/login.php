@@ -1,5 +1,26 @@
 <!-- CREATE CONNECTION TO THE DATABASE -->
- <?php include("connection.php") ?>
+ <?
+   
+   php include("connection.php");
+
+
+   if(isset($_POST['login'])){
+     
+    $userEmail = $_POST['email'];
+    $userPassword = $_POST['password'];
+
+    $userSelectedQuery = "SELECT * FROM `users` WHERE `email`= $userEmail";
+    $connectUser = mysqli_query($conn, $userSelectedQuery);
+
+    if(mysqli_num_rows($connectUser) == 1){
+      header("Location: landingpage.php");
+    }else{
+      echo "Invalid user Credientials!";
+    }
+   }
+
+
+ ?>
 
 
 <!DOCTYPE html>
