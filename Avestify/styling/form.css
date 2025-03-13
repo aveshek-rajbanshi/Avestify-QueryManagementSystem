@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#main-container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    font-family: Poppins;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+
+.formregister-main-container,
+#formlogin-main-container,
+#formresetpassword{
+    position: relative;
+    width: 28vw;
+    height: 59vh;
+    border: 1px solid #dcdbdbf4;
+    border-radius: 16px;
+    box-shadow: 2px 2px 8px #e4e4e4;
+}
+
+#formlogin-main-container{
+    height: 55vh;
+}
+
+#formresetpassword{
+    height: 33vh;
+}
+
+.form-title{
+    margin-top: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.form-title h3{
+    font-size: 32px;
+    font-family: Poppins;
+    font-weight: 520;
+    color: #000;
+}
+.form-title p{
+    margin-left: 8%;
+    padding-left: 2px;
+    font-size: 13px;
+    font-family: Poppins;
+    text-align: start;
+    font-weight: 500;
+    line-height: 12px;
+    color: #777;
+}
+
+.logo{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    font-size: 20px;
+    font-weight: 540;
+    color: #1a1ad1;
+}
+
+#actionBtn{
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 15px;
+    width: 15px;
+}
+
+#actionBtn img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.form{
+    height: 100%;
+    width: 100%;
+    /* background-color: green; */
+}
+
+.inputBox,
+.submitBox{
+    position: relative;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    /* background-color: yellow; */
+}
+
+.inputBox input,
+.inputBox #Password{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 520;
+    /* border: 1px solid #bcbcbc; */
+    border: 1px solid #111;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.inputBox label{
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 450;
+    color:#999;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ label,
+.inputBox input:focus ~ label{
+    color: #777;
+    padding: 0 10px;
+    transform: translateX(10px) translateY(-10px);
+    font-size: 0.75em;
+    background-color: #fff;
+}
+
+.inputBox input:valid,
+.inputBox input:focus{
+    border: 1px solid #1a1ad1;
+}
+
+/* PASSWORD SHOW-HIDE */
+
+.inputBox #Password{
+    padding: 10px 48px 10px 10px;
+}
+
+.inputBox #toogle-password{
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translate(0%,-50%);
+    height: 80%;
+    width: 7%;
+    padding: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+.inputBox #toogle-password #password-icons{
+    position: relative;
+    height: 20px;
+    width: 20px;
+}
+
+.inputBox #toogle-password #password-icons img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.5s;
+}
+
+/* TO REMOVE DEFAULT PASSWORD ICON */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.forgetPassword{
+    position: relative;
+    width: 90%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.forgetPassword a{
+    color: #111;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 520;
+    transition: 0.5s;
+}
+.forgetPassword a:hover{
+    color: #1a1ad1;
+}
+
+.submitBox{
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.submitBox input{
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 520;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    color: #fff;
+    background-color: #08d326;
+    transition: 0.5s;
+}
+
+.submitBox input:hover{
+    background-color: #01bd1d;
+}
+
+.reset-submitBox{
+    position: relative;
+    width: 90%;
+    margin-top: 22px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.reset-submitBox .resetBtn{
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 520;
+    border: none;
+    outline: none;
+    border-radius: 8px;;
+    background-color: #1515bd;
+    transition: 0.5s;
+}
+
+.reset-submitBox .resetBtn:hover{
+    background-color: #1616a5;
+}
+.questionBox{
+    margin-bottom: 16px;
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 450;
+    font-family: Poppins;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.questionBox a{
+    color: #1a1ad1;
+    cursor: pointer;
+}

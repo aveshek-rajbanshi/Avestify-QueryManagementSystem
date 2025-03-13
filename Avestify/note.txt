@@ -1,0 +1,23 @@
+        //SIMPLE METHOD TO STORED DATA IN MYSQL DATABASE-01
+
+    if(isset($_POST['register'])){
+
+       $fullname = $_POST['fullname'];
+       $email    = $_POST['email'];
+       $password = $_POST['password'];
+       $reset= "null";
+       $resetexpire = "null";
+
+       $insertQuery = "INSERT INTO `users` (`full_name`, `email`, `password`, `resettoken`, `resettokenexpire` ) VALUES ('$fullname', '$email', '$password', '$reset', '$resetexpire');";
+       $insertData = mysqli_query($conn, $insertQuery);
+  
+       if($insertData){
+           echo "<script>
+                   alert('Data Inserted into Database.');
+                </script>";
+         }else{
+             echo "<script>
+                     alert('Data not Inserted into Database.');
+                  </script>";
+           }
+       }
