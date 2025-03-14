@@ -40,7 +40,7 @@ html,body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 18px;
     flex-direction: row;
 }
 
@@ -52,19 +52,17 @@ html,body{
     text-decoration: none;
 }
 
-#nav-container #rght-nav #signupBtn,
-#nav-container #rght-nav #loginBtn{
-    padding: 4px 12px;
+#nav-container #rght-nav #logoutBtn{
+    margin-left: 4px;
+    padding: 4px 14px;
     border-radius: 50px;
     border: none;
-    color: #000;
-    border: 2px solid #80808094;
-    transition: 0.5s;
+    color: #fff;
+    background-color: crimson;
+    transition: 0.75s;
 }
 
-#nav-container #rght-nav #signupBtn:hover,
-#nav-container #rght-nav #loginBtn:hover{
-    box-shadow: 0 0 8px #3434ed;
-    /* filter: drop-shadow(0px 1px 8px #c01033); */
+#nav-container #rght-nav #logoutBtn:hover{
+    filter: drop-shadow(0px 1px 8px #c01033);
 }
 

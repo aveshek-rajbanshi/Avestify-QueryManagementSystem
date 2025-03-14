@@ -14,7 +14,8 @@
          <div class="logo"><h3>Avestify</h3></div>
          </div>
          <div id="rght-nav">
-            <a href="login.php" id="logoutBtn">Logout</a>
+            <a href="register.php" id="signupBtn">Sign Up</a>
+            <a href="login.php" id="loginBtn">Login</a>
          </div>
       </div>
    </div>

@@ -1,23 +1,71 @@
 <!-- CREATE CONNECTION TO THE DATABASE -->
- <?
+ <?php
    
-   php include("connection.php");
+   // Include the connection file
+   include("config/connection.php");
 
+   // Include the connection file
+   session_start();
 
+// Check if the form is submitted
    if(isset($_POST['login'])){
      
-    $userEmail = $_POST['email'];
-    $userPassword = $_POST['password'];
+      // checking whether email and password are set in the POST data
+    if (isset($_POST['email']) && isset($_POST['password'])) {
 
-    $userSelectedQuery = "SELECT * FROM `users` WHERE `email`= $userEmail";
-    $connectUser = mysqli_query($conn, $userSelectedQuery);
+      $userEmail = $_POST['email'];
+      $userPassword = $_POST['password'];
 
-    if(mysqli_num_rows($connectUser) == 1){
-      header("Location: landingpage.php");
+      //Escape the email to prevent SQL injection
+      $userEmailV = mysqli_real_escape_string($conn, $userEmail);
+
+      //ACCESSING THE SINGLE USER ONLY.
+      $userSelectedQuery = "SELECT * FROM `users` WHERE `email`= '$userEmailV';";
+      $connectUser = mysqli_query($conn, $userSelectedQuery);
+
+          // Checking whether if the user exists
+      if(mysqli_num_rows($connectUser) == 1){
+         $userData = mysqli_fetch_assoc($connectUser);
+      }
+      
+
+      $adminSelectedQuery = "SELECT * FROM `admin` WHERE `email`='$userEmailV';";
+      $connectAdmin = mysqli_query($conn, $adminSelectedQuery);
+
+      if(mysqli_num_rows($connectAdmin) == 1){
+      $adminData = mysqli_fetch_assoc($connectAdmin);
+      }
+
+      if($userEmailV == "avesh@gmail.com" && password_verify($userPassword, $adminData['password'])){
+         
+            $_SESSION['adminName'] = $adminData['full_name'];
+            $_SESSION['adminEmail'] = $adminData['email'];
+            $_SESSION['adminRole'] = $adminData['role'];
+            
+         // Redirect to the admin panel
+            header("Location: adminpannel.php");
+            exit();   // Make sure to exit after header redirection.
+          
+    }else if($userEmailV == $userData['email'] && password_verify($userPassword, $userData['password'])){
+
+            $_SESSION['userName'] = $userData['full_name'];
+            $_SESSION['userEmail'] = $userData['email'];
+            $_SESSION['Role'] = "user";
+          
+           // Redirect to the user panel
+           header("Location: userpannel.php");
+           exit();   // Make sure to exit after header redirection.
+    
+
     }else{
-      echo "Invalid user Credientials!";
+      echo "Invalid user email & password!";
     }
+  }else{
+    echo "Server Issue!-02";
+  }
+
    }
+  
 
 
  ?>
@@ -35,14 +83,14 @@
   <div id="main-container">
       <div class="logo"><h3>Avestify</h3></div>
       <div id="actionBtn">
-        <a href="register.php"><img src="images/close.png" alt="closeBtn"></a>
+        <a href="landingpage.php"><img src="images/close.png" alt="closeBtn"></a>
       </div>
       <div id="formlogin-main-container">
         <div class="form-title">
             <h3>Login to your Account.</h3>
             <p class="form-title-msg">Inorder to solve your query on Avestify.</p>
         </div>
-        <form class="form" action="landingpage.php" method="POST">
+        <form class="form" action="#" method="POST">
 
           <div class="inputBox">
             <input type="text" id="Email" name="email" required="required" autocomplete="off">
