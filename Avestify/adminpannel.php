@@ -30,7 +30,7 @@ if (!isset($_SESSION['adminName']) || $_SESSION['adminRole'] != "admin") {
          <div class="logo"><h3>Avestify</h3></div>
          </div>
          <div id="rght-nav">
-            <a href="login.php" id="logoutBtn">Logout</a>
+            <a href="logout.php" id="logoutBtn">Logout</a>
          </div>
       </div>
 

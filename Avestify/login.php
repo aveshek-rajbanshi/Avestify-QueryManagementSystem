@@ -4,8 +4,6 @@
    // Include the connection file
    include("config/connection.php");
 
-   // Include the connection file
-   session_start();
 
 // Check if the form is submitted
    if(isset($_POST['login'])){
@@ -37,6 +35,9 @@
       }
 
       if($userEmailV == "avesh@gmail.com" && password_verify($userPassword, $adminData['password'])){
+
+            // Include the connection file
+            session_start();
          
             $_SESSION['adminName'] = $adminData['full_name'];
             $_SESSION['adminEmail'] = $adminData['email'];
@@ -47,6 +48,9 @@
             exit();   // Make sure to exit after header redirection.
           
     }else if($userEmailV == $userData['email'] && password_verify($userPassword, $userData['password'])){
+
+           // Include the connection file
+            session_start();
 
             $_SESSION['userName'] = $userData['full_name'];
             $_SESSION['userEmail'] = $userData['email'];
