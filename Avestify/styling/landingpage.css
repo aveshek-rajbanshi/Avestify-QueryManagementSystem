@@ -13,7 +13,17 @@ html,body{
 #main{
     height: 100vh;
     width: 100vw;
-    background-color: #eeeeee;
+}
+
+#landing-background{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom right, #fff, #d3d3fc);
+    filter: blur(5px);
+    z-index: -5;
 }
 
 #nav-container{
@@ -36,6 +46,7 @@ html,body{
 }
 
 #nav-container #rght-nav{
+    margin-top: 2px;
     margin-right: 2%;
     display: flex;
     justify-content: center;
@@ -66,5 +77,79 @@ html,body{
 #nav-container #rght-nav #loginBtn:hover{
     box-shadow: 0 0 8px #3434ed;
     /* filter: drop-shadow(0px 1px 8px #c01033); */
+}
+
+#landing-heading{
+    width: 60%;
+    height: 20vh;
+    margin-top: 5%;
+    margin-left: 20%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+    line-height: 55px;
+    color: #000;
+    /* background-color: crimson; */
+}
+
+#landing-imageHolder{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 45vh;
+    width: 32vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: crimson; */
+}
+
+#landing-imageFrame{
+    position: relative;
+    height: 90%;
+    width: 90%;
+    /* background-color: blue; */
+}
+
+#landing-imageFrame img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(2px 0px 8px #24242463);
+}
+
+.img-box1{
+    position: absolute;
+    top: 34%;
+    left: 34%;
+    height: 16%;
+    width: 7%;
+    /* background-color: red; */
+}
+
+.img-box2{
+    position: absolute;
+    top: 40%;
+    right: 30%;
+    height: 18%;
+    width: 8%;
+    /* background-color: rgb(64, 0, 255); */
+}
+
+.imgbox img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: drop-shadow(-2px 3px 4px #17171753);
+}
+
+.img-box1 img{
+    filter: drop-shadow(-2px 3px 4px #32323230);
 }
 

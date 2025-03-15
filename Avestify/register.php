@@ -13,11 +13,10 @@
 
         // HASHING THE PASSWORD.
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        echo $hashedPassword;
 
         // Prepare and execute the statement
         // Directly inserting user input into your SQL query can lead to SQL injection attacks. Use prepared statements to avoid this vulnerability.
-      $stmt = $conn->prepare("INSERT INTO `admin` (`full_name`, `email`, `password`) VALUES (?, ?, ?)");
+      $stmt = $conn->prepare("INSERT INTO `users` (`full_name`, `email`, `password`) VALUES (?, ?, ?)");
       $stmt->bind_param("sss", $fullname, $email, $hashedPassword);
 
       if ($stmt->execute()) {
