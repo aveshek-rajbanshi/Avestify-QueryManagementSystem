@@ -54,7 +54,7 @@
         <div class="form-title">
             <h3>Create an Account.</h3>
         </div>
-        <form class="form" action="#" method="POST">
+        <form class="form" action="login.php" method="POST">
 
           <div class="inputBox">
             <!-- <label for="Name">Name</label> -->
